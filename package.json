@@ -1,0 +1,45 @@
+{
+  "$schema": "./package.schema.json",
+  "name": "@chaine.dance/jive-test-package",
+  "description": "The one throwaway package Jive's package provisioning is tested with. Not for use.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "jive:cicd:get-config": "jive-library cicd get-config",
+    "jive:cicd:build": "jive-library cicd build",
+    "jive:cicd:audit": "tsc --noEmit -p tsconfig.json",
+    "jive:cicd:deploy:plan": "jive-library cicd deploy-plan",
+    "jive:cicd:upload-artifacts": "jive-library cicd upload-artifacts",
+    "jive:cicd:deploy": "jive-library cicd deploy"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.14",
+    "effect": "^4.0.0",
+    "jive-abstract-library": "0.3.0",
+    "typescript": "^5.9.3"
+  },
+  "jive": {
+    "cicd": {
+      "deploy": {
+        "verb": "Publish Tag",
+        "branches": {
+          "main": [
+            "latest"
+          ]
+        },
+        "previews": false,
+        "sequentially": true
+      },
+      "runsOnPullRequests": true,
+      "runsOn": "ubuntu-latest",
+      "requiredSecrets": []
+    },
+    "library": {
+      "daemons": [],
+      "provisionWithJive": {
+        "serverUrl": "https://adorable-giraffe-46.convex.cloud"
+      }
+    }
+  }
+}
