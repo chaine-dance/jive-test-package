@@ -2,7 +2,7 @@
   "$schema": "./package.schema.json",
   "name": "@chaine.dance/jive-test-package",
   "description": "The one throwaway package Jive's package provisioning is tested with. Not for use.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "type": "module",
   "scripts": {
